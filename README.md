@@ -73,7 +73,8 @@ cookie-picker/
 └── icon*.png       # 图标
 ```
 
-## 联系 / Contact
+## Socials
 
-- 社媒账号：**@下一站澳门**，有需要欢迎联系。
-- Social media: **@下一站澳门**. Feel free to reach out if you need anything.
+**@下一站澳门** · DM for inquiries.
+
+![WeChat](wechat_qr.png)
