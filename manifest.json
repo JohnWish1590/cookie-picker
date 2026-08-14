@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Cookie 管家",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "多站 Cookie 读取与导出：每站独立一键读取（显示成功/失败），复制到剪贴板，可选写入本地同步目录或推送到 NAS 后端（供雪哨 v2 / 微博推送等使用）。通用版，适用于任何需要登录态的网站。",
   "permissions": ["cookies", "tabs", "activeTab", "storage", "clipboardWrite"],
   "host_permissions": ["<all_urls>"],
