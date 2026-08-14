@@ -73,6 +73,4 @@ cookie-picker/
 └── icon*.png       # 图标
 ```
 
-## Socials
-
-**@下一站澳门** · DM for inquiries.
+Socials: @下一站澳门. DM for inquiries.
