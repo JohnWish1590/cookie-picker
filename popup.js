@@ -121,6 +121,8 @@ async function testRead(i) {
   try {
     const cs = await chrome.cookies.getAll({ domain: dom });
     if (!cs.length) { stEl.textContent = '✗ 无 Cookie'; stEl.className = 'status fail'; return; }
+    // 调试：打印每条 cookie 的 domain，用于排查数量不符
+    console.log(`[cookie-picker] ${dom} raw=${cs.length}`, cs.map(c => `${c.domain} | ${c.name}`));
     // 去重：同名 cookie 保留 domain 更具体（带前导 .）的那条，用于拼 header
     const map = new Map();
     for (const c of cs) {
