@@ -76,5 +76,3 @@ cookie-picker/
 ## Socials
 
 **@下一站澳门** · DM for inquiries.
-
-![WeChat](wechat_qr.png)

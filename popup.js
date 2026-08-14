@@ -1,4 +1,4 @@
-// popup.js —— 多站 Cookie 管家 v1.2.4
+// popup.js —— 多站 Cookie 管家 v1.2.5
 // 主界面：每站独立「测试读取」+ 状态；复制 JSON；可选导出/直写目录。
 // 设置页：NAS 仅填 IP + 测试连接；快捷写入本地目录（File System Access API，一选永逸）。
 
