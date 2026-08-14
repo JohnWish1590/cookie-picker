@@ -2,6 +2,8 @@
 
 一个 Chrome 扩展，**读取任意已登录网站的完整 Cookie（含 httpOnly），无需手动去 DevTools 复制 Cookie 请求头**。
 
+> **跨平台，无需单独 Mac 版**：本扩展是浏览器扩展（MV3），与操作系统无关。Windows / macOS / Linux 的 Chrome、Edge 通用，**同一个 zip 即可**。下文 Windows 与 macOS 的安装步骤基本一致，仅文件夹选择对话框略有不同。
+
 ## 为什么要做它
 
 手动取 Cookie 有两个痛点：
@@ -40,6 +42,18 @@
 2. 点工具栏图标打开弹窗
 3. 在站点列表勾选目标站，点「测试读取」
 4. 看到「✓ N 条」后，点「复制」拿 JSON
+
+## 在 macOS 上安装（与 Windows 同一份文件）
+
+Mac 用户**下载同一个 `cookie-picker-v1.2.0.zip` 即可**，不需要单独的 Mac 版。
+
+1. 下载 release 里的 `cookie-picker-v1.2.0.zip`，双击解压（或用终端 `unzip`），得到 `cookie-picker-v1.2.0/` 文件夹（里面直接是 `manifest.json`、`popup.html` 等，**不要再多嵌套一层**）。
+2. 打开 Chrome，地址栏输入 `chrome://extensions/` 并回车。
+3. 右上角打开「开发者模式」（Developer mode）。
+4. 点「加载已解压的扩展程序」（Load unpacked），在弹出的 macOS 文件夹选择框里**选中解压出的 `cookie-picker-v1.2.0` 文件夹**（不是里面的某个文件）。
+5. 工具栏出现橙色图标即成功。
+
+> **Mac 专属小坑**：若从「下载」目录直接加载报错（macOS 偶尔会因 quarantine 拦截刚下载的文件夹），把 `cookie-picker-v1.2.0` 文件夹拖到别处（如 `~/Documents`）再加载即可。终端里也可执行 `xattr -cr /path/to/cookie-picker-v1.2.0` 清除隔离属性。
 
 ## 权限说明
 
