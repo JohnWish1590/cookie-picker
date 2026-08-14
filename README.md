@@ -47,15 +47,15 @@
 
 ## 在 macOS 上安装（与 Windows 同一份文件）
 
-Mac 用户**下载同一个 `cookie-picker-v1.2.0.zip` 即可**，不需要单独的 Mac 版。
+Mac 用户**下载同一个 `cookie-picker-v1.2.3.zip` 即可**，不需要单独的 Mac 版。
 
-1. 下载 release 里的 `cookie-picker-v1.2.0.zip`，双击解压（或用终端 `unzip`），得到 `cookie-picker-v1.2.0/` 文件夹（里面直接是 `manifest.json`、`popup.html` 等，**不要再多嵌套一层**）。
+1. 下载 release 里的 `cookie-picker-v1.2.3.zip`，双击解压（或用终端 `unzip`），得到 `cookie-picker-v1.2.3/` 文件夹（里面直接是 `manifest.json`、`popup.html` 等，**不要再多嵌套一层**）。
 2. 打开 Chrome，地址栏输入 `chrome://extensions/` 并回车。
 3. 右上角打开「开发者模式」（Developer mode）。
-4. 点「加载已解压的扩展程序」（Load unpacked），在弹出的 macOS 文件夹选择框里**选中解压出的 `cookie-picker-v1.2.0` 文件夹**（不是里面的某个文件）。
+4. 点「加载已解压的扩展程序」（Load unpacked），在弹出的 macOS 文件夹选择框里**选中解压出的 `cookie-picker-v1.2.3` 文件夹**（不是里面的某个文件）。
 5. 工具栏出现橙色图标即成功。
 
-> **Mac 专属小坑**：若从「下载」目录直接加载报错（macOS 偶尔会因 quarantine 拦截刚下载的文件夹），把 `cookie-picker-v1.2.0` 文件夹拖到别处（如 `~/Documents`）再加载即可。终端里也可执行 `xattr -cr /path/to/cookie-picker-v1.2.0` 清除隔离属性。
+> **Mac 专属小坑**：若从「下载」目录直接加载报错（macOS 偶尔会因 quarantine 拦截刚下载的文件夹），把 `cookie-picker-v1.2.3` 文件夹拖到别处（如 `~/Documents`）再加载即可。终端里也可执行 `xattr -cr /path/to/cookie-picker-v1.2.3` 清除隔离属性。
 
 ## 权限说明
 
@@ -72,3 +72,8 @@ cookie-picker/
 ├── popup.js        # 核心逻辑（chrome.cookies API）
 └── icon*.png       # 图标
 ```
+
+## 联系 / Contact
+
+- 社媒账号：**@下一站澳门**，有需要欢迎联系。
+- Social media: **@下一站澳门**. Feel free to reach out if you need anything.
