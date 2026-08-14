@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { width: 380px; margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #222; background: #fff; }
+  .head { background: #4A90D9; color: #fff; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
+  .head .title { display: flex; align-items: center; gap: 8px; }
+  .head .logo { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.2); display: flex; align-items: center; justify-content: center; font-size: 12px; }
+  .head h1 { margin: 0; font-size: 15px; font-weight: 500; }
+  .head p { margin: 3px 0 0; font-size: 11px; opacity: .88; }
+  .head .gear { cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 11px; padding: 4px 8px; border-radius: 6px; background: rgba(255,255,255,.15); }
+  .scroll { padding: 14px 16px; max-height: 440px; overflow-y: auto; }
+  .lbl { font-size: 12px; color: #888; display: block; margin: 4px 0 6px; font-weight: 500; }
+  .row { display: flex; gap: 8px; margin-bottom: 12px; }
+  input { flex: 1; padding: 8px 10px; border: .5px solid #ddd; border-radius: 8px; font-size: 13px; outline: none; min-width: 0; }
+  input:focus { border-color: #4A90D9; }
+  button { border: none; border-radius: 8px; padding: 8px 12px; font-size: 13px; cursor: pointer; white-space: nowrap; font-weight: 500; }
+  .btn-primary { background: #4A90D9; color: #fff; }
+  .btn-ghost { background: #f2f2f2; color: #444; }
+  .btn-outline { background: #fff; color: #4A90D9; border: .5px solid #4A90D9; }
+  .btn-outline:active, .btn-primary:active, .btn-ghost:active { transform: translateY(1px); }
+  .sites { border: .5px solid #e8e8e8; border-radius: 10px; overflow: hidden; margin-bottom: 12px; }
+  .site { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: .5px solid #f0f0f0; background: #fafafa; }
+  .site:last-child { border-bottom: none; }
+  .site b { font-weight: 500; font-size: 13px; flex: 1; }
+  .site .test { font-size: 11px; padding: 4px 10px; border: .5px solid #4A90D9; border-radius: 6px; background: #fff; color: #4A90D9; cursor: pointer; }
+  .site .status { font-size: 11px; color: #999; min-width: 48px; text-align: right; }
+  .site .status.ok { color: #2a8a4a; font-weight: 500; }
+  .site .status.fail { color: #c33; font-weight: 500; }
+  .site .del { color: #c33; cursor: pointer; font-size: 13px; padding: 0 2px; }
+  .stat { font-size: 12px; color: #666; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+  textarea { width: 100%; height: 80px; border: .5px solid #ddd; border-radius: 8px; padding: 8px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 10px; resize: vertical; background: #fafafa; color: #666; }
+  .hint { font-size: 10px; color: #aaa; margin: 6px 0 0; line-height: 1.5; }
+  .export-btn { width: 100%; margin-top: 10px; background: #4A90D9; color: #fff; }
+  .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; padding-top: 10px; border-top: .5px solid #f0f0f0; }
+  .foot .ver { font-size: 10px; color: #bbb; }
+  .hidden { display: none !important; }
+  .back { font-size: 18px; cursor: pointer; }
+  .card { border-top: .5px solid #f0f0f0; padding-top: 16px; margin-bottom: 16px; }
+  .path { font-size: 11px; color: #4A90D9; margin: 6px 0 0; word-break: break-all; }
+  .copied { color: #2a8a4a !important; border-color: #2a8a4a !important; }
+</style>
+</head>
+<body>
+  <!-- 主界面 -->
+  <div id="mainView">
+    <div class="head">
+      <div class="title">
+        <div class="logo">C</div>
+        <div>
+          <h1>Cookie 管家</h1>
+          <p>多站 Cookie 读取与导出</p>
+        </div>
+      </div>
+      <div class="gear" id="openSettings">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        设置
+      </div>
+    </div>
+    <div class="scroll">
+      <div class="sites" id="sites"></div>
+      <div class="row">
+        <input id="newSite" placeholder="添加站点名称，如 zhihu.com" />
+        <button class="btn-ghost" id="addSite">添加</button>
+      </div>
+      <div class="stat">
+        <span id="stat">尚未读取。</span>
+        <button class="btn-outline" id="copy" style="display:none">复制 JSON</button>
+      </div>
+      <textarea id="out" readonly placeholder="读取结果将显示在这里…"></textarea>
+      <button class="export-btn hidden" id="exportNas">导出到 NAS</button>
+      <div class="foot">
+        <span class="ver">v1.2.0</span>
+        <span class="hint" style="margin:0">读取后自动写入已选目录（若设置）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 设置界面 -->
+  <div id="settingsView" class="hidden">
+    <div class="head">
+      <div class="title">
+        <span class="back" id="backMain">←</span>
+        <h1>设置</h1>
+      </div>
+      <span style="font-size:11px;opacity:.88">Cookie 管家</span>
+    </div>
+    <div class="scroll">
+      <div class="card">
+        <label class="lbl">NAS 地址（仅填 IP，端口与路径自动补全）</label>
+        <div class="row">
+          <input id="nasIp" placeholder="如 192.168.1.50" />
+          <button class="btn-outline" id="testNas">测试</button>
+        </div>
+        <span class="status" id="nasStatus" style="font-size:11px;color:#999">未测试</span>
+        <p class="hint">填写后主界面出现「导出到 NAS」按钮。留空也能用（靠复制剪贴板把 cookie 给 NAS）。</p>
+      </div>
+
+      <div class="card">
+        <label class="lbl">快捷写入目录（可选，一选永逸）</label>
+        <button class="btn-outline" id="pickDir" style="width:100%;text-align:left">选择本地目录</button>
+        <p class="path" id="dirPath"></p>
+        <p class="hint">选一次你同步到 NAS 的文件夹（如 SynologyDrive / QNAP 同步目录），读取 cookie 后自动写入该目录，NAS 实时拿到，无需手动复制。</p>
+      </div>
+
+      <div class="card">
+        <label class="lbl">数据管理</label>
+        <button class="btn-ghost" id="clearData" style="width:100%;text-align:left;background:#fef2f2;color:#c33">清除所有缓存数据</button>
+        <p class="hint">删除已保存的站点列表、NAS 地址与目录配置。</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
